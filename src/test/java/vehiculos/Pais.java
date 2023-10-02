@@ -2,7 +2,8 @@ package vehiculos;
 
 public class Pais {
 	
-	String nombre;
+	private String nombre;
+	
 	
 	public Pais(String nombre) {
 		this.nombre=nombre;
@@ -14,6 +15,10 @@ public class Pais {
 	
 	public void setNombre(String nombre) {
 		this.nombre=nombre;
+	}
+	
+	public Pais paisMasVendedor() {
+		
 	}
 
 }

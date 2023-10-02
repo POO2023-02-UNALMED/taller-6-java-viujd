@@ -2,7 +2,7 @@ package vehiculos;
 
 public class Automovil extends Vehiculo {
 	
-	int puestos;
+	private int puestos;
 	static int cantidadAutomovil;
 	
 	public Automovil(String placa, String nombre, int precio, int peso, Fabricante fabricante, int puestos) {

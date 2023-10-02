@@ -2,8 +2,8 @@ package vehiculos;
 
 public class Fabricante {
 	
-	String nombre;
-	Pais pais;
+	private String nombre;
+	private Pais pais;
 	
 	public Fabricante (String nombre, Pais pais) {
 		this.nombre=nombre;
@@ -24,6 +24,10 @@ public class Fabricante {
 	
 	public void setPais (Pais pais) {
 		this.pais=pais;
+	}
+	
+	public Fabricante fabricaMayorVentas () {
+		
 	}
 
 }
