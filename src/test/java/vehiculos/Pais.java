@@ -5,7 +5,7 @@ public class Pais {
 	
 	private String nombre;
 	private static ArrayList<Pais> listado=new ArrayList<Pais>();
-	private int CantidadVentas;
+	private static int CantidadVentas;
 	
 	
 	public Pais(String nombre) {
@@ -21,13 +21,10 @@ public class Pais {
 		this.nombre=nombre;
 	}
 	
-	public  int getCantidadVentas() {
+	public static  int getCantidadVentas() {
 		return CantidadVentas;
 	}
 	
-	public void setCantidadVentas(int CantidadVentas) {
-		this.CantidadVentas=CantidadVentas;
-	}
 	
 	public static ArrayList<Pais> getListado() {
 		return listado;
