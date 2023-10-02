@@ -18,45 +18,30 @@ public class Pais {
 	}
 	
 	public void setNombre(String nombre) {
-		this.nombre=nombre;
+		this.nombre = nombre;
 	}
 	
-	public  int getCantidadVentas() {
+	public int getCantidadVentas() {
 		return CantidadVentas;
 	}
-	
+
 	public void setCantidadVentas(int CantidadVentas) {
-		this.CantidadVentas=CantidadVentas;
-	}
-	
-	
-	public static ArrayList<Pais> getListado() {
-		return listado;
+		this.CantidadVentas = CantidadVentas;
 	}
 
-
-	public static void setListado(ArrayList<Pais> listado) {
-		Pais.listado = listado;
-	}
-	
-	public void agregarVenta() {
+	public void agregarVentas() {
 		this.setCantidadVentas(this.getCantidadVentas() + 1);
 	}
 	
-	public Pais paisMasVendedor() {
-		
-		int maxventas=0;
-		Pais paisMasVendedor=null;
-		
-		for (Pais pais:listado) {
-			if(pais.getCantidadVentas() > maxventas) {
-				maxventas = pais.getCantidadVentas();
-				paisMasVendedor = pais;
+	public static Pais paisMasVendedor() {
+		int mayorVentas = 0;
+		Pais p = null;
+		for(Pais pais: listado) {
+			if(pais.getCantidadVentas() > mayorVentas) {
+				mayorVentas = pais.getCantidadVentas();
+				p = pais;
 			}
 		}
-		return paisMasVendedor;
-		
-		
+		return p;
 	}
-
 }

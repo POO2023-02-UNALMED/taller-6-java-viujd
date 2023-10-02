@@ -19,55 +19,39 @@ public class Fabricante {
 	}
 	
 	public void setNombre(String nombre) {
-		this.nombre=nombre;
+		this.nombre = nombre;
 	}
 	
 	public Pais getPais() {
 		return pais;
 	}
 	
-	public void setPais (Pais pais) {
-		this.pais=pais;
+	public void setPais(Pais pais) {
+		this.pais = pais;
 	}
 	
 	public int getCantidadVentas() {
 		return CantidadVentas;
 	}
-	
+
 	public void setCantidadVentas(int CantidadVentas) {
-		this.CantidadVentas=CantidadVentas;
-	}
-	
-	public static ArrayList<Fabricante> getListado() {
-		return listado;
+		this.CantidadVentas = CantidadVentas;
 	}
 
-
-	public static void setListado(ArrayList<Fabricante> listado) {
-		Fabricante.listado = listado;
-	}
-	
 	public void agregarVenta() {
-		this.setCantidadVentas(this.getCantidadVentas() + 1);
+		this.setCantidadVentas(this.getCantidadVentas() + 1); 
+		this.pais.agregarVentas();
 	}
 	
-	public Fabricante fabricaMasVendedora() {
-		
-		int maxventas=0;
-		Fabricante fabricaMasVendedora=null;
-		
+	public static Fabricante fabricaMayorVentas() {
+		Fabricante f = null;
+		int mayorVentas = 0;
 		for(Fabricante fabricante: listado) {
-			if(fabricante.getCantidadVentas() > maxventas) {
-				maxventas = fabricante.getCantidadVentas();
-				fabricaMasVendedora = fabricante;
+			if(fabricante.getCantidadVentas() > mayorVentas) {
+				mayorVentas = fabricante.getCantidadVentas();
+				f = fabricante;
 			}
 		}
-		return fabricaMasVendedora;
-		
-		
-		
-		
+		return f;
 	}
-
-
 }
