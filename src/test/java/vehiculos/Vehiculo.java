@@ -1,4 +1,4 @@
-package vehiculo;
+package vehiculos;
 
 public class Vehiculo {
 	
@@ -87,5 +87,10 @@ public class Vehiculo {
 	public void setFabricante(Fabricante fabricante) {
 		this.fabricante=fabricante;
 	}
+	
+	public static String vehiculosPorTipo() {
+		return ("Automovil: " + Automovil.cantidadAutomovil + "\nCamionetas: " + Camioneta.cantidadCamioneta + "\nCamiones: " + Camion.cantidadCamion);
+	}
+		
 
 }
