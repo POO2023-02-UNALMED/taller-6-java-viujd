@@ -2,15 +2,13 @@ package vehiculos;
 import java.util.ArrayList;
 
 public class Pais {
-	
 	private String nombre;
-	private static ArrayList<Pais> listado=new ArrayList<Pais>();
-	private int CantidadVentas;
-	
+	private int ventas;
+	public static ArrayList<Pais> paises = new ArrayList<Pais>();
 	
 	public Pais(String nombre) {
-		this.nombre=nombre;
-		listado.add(this);
+		this.nombre = nombre;
+		paises.add(this);
 	}
 	
 	public String getNombre() {
@@ -21,24 +19,24 @@ public class Pais {
 		this.nombre = nombre;
 	}
 	
-	public int getCantidadVentas() {
-		return CantidadVentas;
+	public int getVentas() {
+		return ventas;
 	}
 
-	public void setCantidadVentas(int CantidadVentas) {
-		this.CantidadVentas = CantidadVentas;
+	public void setVentas(int ventas) {
+		this.ventas = ventas;
 	}
 
-	public void agregarVentas() {
-		this.setCantidadVentas(this.getCantidadVentas() + 1);
+	public void agregarVenta() {
+		this.setVentas(this.getVentas() + 1);
 	}
 	
 	public static Pais paisMasVendedor() {
 		int mayorVentas = 0;
 		Pais p = null;
-		for(Pais pais: listado) {
-			if(pais.getCantidadVentas() > mayorVentas) {
-				mayorVentas = pais.getCantidadVentas();
+		for(Pais pais: paises) {
+			if(pais.getVentas() > mayorVentas) {
+				mayorVentas = pais.getVentas();
 				p = pais;
 			}
 		}
