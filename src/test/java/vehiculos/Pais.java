@@ -1,45 +1,45 @@
 package vehiculos;
+
 import java.util.ArrayList;
 
 public class Pais {
 	private String nombre;
-	private int ventas;
-	public static ArrayList<Pais> paises = new ArrayList<Pais>();
+	private int vehiculosFabricados;
+	private static ArrayList<Pais> listadoPaises = new ArrayList<Pais>();
 	
 	public Pais(String nombre) {
 		this.nombre = nombre;
-		paises.add(this);
+		Pais.listadoPaises.add(this);
 	}
 	
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
-	public int getVentas() {
-		return ventas;
+	public int getVehiculosFabricados() {
+		return this.vehiculosFabricados;
 	}
-
-	public void setVentas(int ventas) {
-		this.ventas = ventas;
+	
+	public void setVehiculosFabricados(int cantidad) {
+		this.vehiculosFabricados = cantidad;
 	}
-
-	public void agregarVenta() {
-		this.setVentas(this.getVentas() + 1);
+	
+	public void fabricarVehiculo() {
+		this.vehiculosFabricados++;
 	}
 	
 	public static Pais paisMasVendedor() {
-		int mayorVentas = 0;
-		Pais p = null;
-		for(Pais pais: paises) {
-			if(pais.getVentas() > mayorVentas) {
-				mayorVentas = pais.getVentas();
-				p = pais;
+		Pais mayorVendedor = listadoPaises.get(0);
+		for (int i = 1; i < listadoPaises.size(); i++) {
+			if (listadoPaises.get(i).getVehiculosFabricados() > mayorVendedor.getVehiculosFabricados()) {
+				mayorVendedor = listadoPaises.get(i);
 			}
 		}
-		return p;
+		return mayorVendedor;
 	}
+	
 }

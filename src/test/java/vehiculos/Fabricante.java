@@ -4,17 +4,17 @@ import java.util.ArrayList;
 public class Fabricante {
 	private String nombre;
 	private Pais pais;
-	private int ventas;
-	public static ArrayList<Fabricante> fabricantes = new ArrayList<Fabricante>();
+	private int vehiculosFabricados;
+	private static ArrayList<Fabricante> listadoFabricantes = new ArrayList<Fabricante>();
 	
 	public Fabricante(String nombre, Pais pais) {
 		this.nombre = nombre;
 		this.pais = pais;
-		fabricantes.add(this);
+		Fabricante.listadoFabricantes.add(this);
 	}
 	
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 	
 	public void setNombre(String nombre) {
@@ -22,35 +22,33 @@ public class Fabricante {
 	}
 	
 	public Pais getPais() {
-		return pais;
+		return this.pais;
 	}
 	
 	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
+
+	public int getVehiculosFabricados() {
+		return this.vehiculosFabricados;
+	}
 	
-	public int getVentas() {
-		return ventas;
+	public void setVehiculosFabricados(int cantidad) {
+		this.vehiculosFabricados = cantidad;
 	}
-
-	public void setVentas(int ventas) {
-		this.ventas = ventas;
-	}
-
-	public void agregarVenta() {
-		this.setVentas(this.getVentas() + 1); 
-		this.pais.agregarVenta();
+	
+	public void fabricarVehiculo() {
+		this.vehiculosFabricados++;
 	}
 	
 	public static Fabricante fabricaMayorVentas() {
-		Fabricante f = null;
-		int mayorVentas = 0;
-		for(Fabricante fabricante: fabricantes) {
-			if(fabricante.getVentas() > mayorVentas) {
-				mayorVentas = fabricante.getVentas();
-				f = fabricante;
+		Fabricante mayorVendedor = listadoFabricantes.get(0);
+		for (int i = 1; i < listadoFabricantes.size(); i++) {
+			if (listadoFabricantes.get(i).getVehiculosFabricados() > mayorVendedor.getVehiculosFabricados()) {
+				mayorVendedor = listadoFabricantes.get(i);
 			}
 		}
-		return f;
+		return mayorVendedor;
 	}
+	
 }
