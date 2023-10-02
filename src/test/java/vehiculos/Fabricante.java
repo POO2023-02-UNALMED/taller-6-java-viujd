@@ -47,6 +47,10 @@ public class Fabricante {
 		Fabricante.listado = listado;
 	}
 	
+	public void agregarVenta() {
+		this.setCantidadVentas(this.getCantidadVentas() + 1);
+	}
+	
 	public Fabricante fabricaMasVendedora() {
 		
 		int maxventas=0;

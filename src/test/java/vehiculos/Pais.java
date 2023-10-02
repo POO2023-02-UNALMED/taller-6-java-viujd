@@ -39,6 +39,10 @@ public class Pais {
 		Pais.listado = listado;
 	}
 	
+	public void agregarVenta() {
+		this.setCantidadVentas(this.getCantidadVentas() + 1);
+	}
+	
 	public Pais paisMasVendedor() {
 		
 		int maxventas=0;
