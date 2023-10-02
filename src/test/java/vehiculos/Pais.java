@@ -5,7 +5,7 @@ public class Pais {
 	
 	private String nombre;
 	private static ArrayList<Pais> listado=new ArrayList<Pais>();
-	private static int CantidadVentas;
+	private int CantidadVentas;
 	
 	
 	public Pais(String nombre) {
@@ -21,8 +21,12 @@ public class Pais {
 		this.nombre=nombre;
 	}
 	
-	public static  int getCantidadVentas() {
+	public  int getCantidadVentas() {
 		return CantidadVentas;
+	}
+	
+	public void setCantidadVentas(int CantidadVentas) {
+		this.CantidadVentas=CantidadVentas;
 	}
 	
 	
@@ -40,12 +44,10 @@ public class Pais {
 		int maxventas=0;
 		Pais paisMasVendedor=null;
 		
-		for (int i=0; i< Pais.listado.size(); i++) {
-			int CantidadVentas= Pais.getCantidadVentas();
-			
-			if (CantidadVentas>maxventas) {
-				maxventas=CantidadVentas;
-				paisMasVendedor= listado.get(i);
+		for (Pais pais:listado) {
+			if(pais.getCantidadVentas() > maxventas) {
+				maxventas = pais.getCantidadVentas();
+				paisMasVendedor = pais;
 			}
 		}
 		return paisMasVendedor;

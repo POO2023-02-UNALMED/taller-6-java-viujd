@@ -6,7 +6,7 @@ public class Fabricante {
 	private String nombre;
 	private Pais pais;
 	private static ArrayList<Fabricante> listado=new ArrayList<Fabricante>();
-	private static int CantidadVentas;
+	private int CantidadVentas;
 	
 	public Fabricante (String nombre, Pais pais) {
 		this.nombre=nombre;
@@ -30,10 +30,13 @@ public class Fabricante {
 		this.pais=pais;
 	}
 	
-	public static  int getCantidadVentas() {
+	public int getCantidadVentas() {
 		return CantidadVentas;
 	}
 	
+	public void setCantidadVentas(int CantidadVentas) {
+		this.CantidadVentas=CantidadVentas;
+	}
 	
 	public static ArrayList<Fabricante> getListado() {
 		return listado;
@@ -44,20 +47,20 @@ public class Fabricante {
 		Fabricante.listado = listado;
 	}
 	
-	public Fabricante paisMasVendedor() {
+	public Fabricante fabricaMasVendedora() {
 		
 		int maxventas=0;
-		Fabricante fabricaMasVendedor=null;
+		Fabricante fabricaMasVendedora=null;
 		
-		for (int i=0; i< Fabricante.listado.size(); i++) {
-			int CantidadVentas= Fabricante.getCantidadVentas();
-			
-			if (CantidadVentas>maxventas) {
-				maxventas=CantidadVentas;
-				fabricaMasVendedor= listado.get(i);
+		for(Fabricante fabricante: listado) {
+			if(fabricante.getCantidadVentas() > maxventas) {
+				maxventas = fabricante.getCantidadVentas();
+				fabricaMasVendedora = fabricante;
 			}
 		}
-		return fabricaMasVendedor;
+		return fabricaMasVendedora;
+		
+		
 		
 		
 	}
